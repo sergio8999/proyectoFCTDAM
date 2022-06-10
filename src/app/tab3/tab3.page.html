@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar no-border color="primary">
+    <ion-title>
+      {{ 'settings.settings' | translate}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <ion-grid>
+
+    <ion-row *ngIf="!changeAvatar" class="ion-justify-content-center ion-text-center ion-margin-top">
+      <ion-col size="6">
+        <img *ngIf="avatar" src="/assets/avatars/{{ avatar }}" class="animate__animated animate__fadeIn">
+        <ion-spinner *ngIf="!avatar" color="secondary" name="lines"></ion-spinner>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="changeAvatar" class="ion-margin-top animate__animated animate__fadeIn">
+      <ion-col size="12">
+        <app-avatar-selector  (avatarSel)="avatar = $event" [avatarActual]="avatar">
+        </app-avatar-selector>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-text-center animate__animated animate__fadeInr">
+      <ion-col size="6">
+        <ion-chip *ngIf="!changeAvatar" (click)="changeAvatar = true" outline color="secondary">
+          <ion-label>{{ 'comun.edit' | translate}}</ion-label>
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-text-center animate__animated animate__fadeIn">
+      <ion-col size="12">
+        <ion-chip *ngIf="changeAvatar" (click)="updateAvatar()" outline color="success">
+          <ion-label>{{ 'comun.accept' | translate}}</ion-label>
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-chip>
+        <ion-chip *ngIf="changeAvatar" (click)="cancelUpdate()" outline color="danger">
+          <ion-label>{{ 'comun.cancel' | translate}}</ion-label>
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin">
+      <ion-col>
+        <ion-item lines="none">
+          <ion-icon slot="start" name="invert-mode-outline"></ion-icon>
+          <ion-label>
+            {{ 'settings.darkMode' | translate}}
+          </ion-label>
+          <ion-toggle color="secondary" [(ngModel)]="selected" (ionChange)="changeMode($event)" slot="end"></ion-toggle>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+    <ion-row class="ion-margin">
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-icon slot="start" name="globe-sharp"></ion-icon>
+          <ion-label>{{ 'settings.language' | translate}}</ion-label>
+          <ion-select class="custom-options" [(ngModel)]="language" (ionChange)="updateLanguage()">
+            <ion-select-option value="es">{{ 'settings.spanish' | translate}}</ion-select-option>
+            <ion-select-option value="en">{{ 'settings.english' | translate}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,114 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-icon slot="icon-only" name="arrow-back-outline" (click)="closeModal()"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ 'comun.register_user' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="center">
+
+  <app-avatar-selector (avatarSel)="avatar = $event"></app-avatar-selector>
+  <form [formGroup]="dataForm" (ngSubmit)="register()">
+  
+    <ion-row>
+        <ion-col>
+            
+            <ion-list>
+                
+              <ion-item transparent>
+                  <ion-icon slot="start" name="document-text-outline"></ion-icon>
+                  <ion-label position="floating">Dni</ion-label>
+                  <ion-input type="text" placeholder="Dni" formControlName="dni"> </ion-input>
+                  <ion-note slot="error"
+                    *ngIf="(dataForm.controls.dni.dirty || dataForm.controls.dni.touched) && dataForm.controls.dni.errors">
+                    Dni no válido</ion-note>
+                </ion-item>
+  
+                <ion-item transparent>
+                  <ion-icon slot="start" name="people-outline"></ion-icon>
+                  <ion-label position="floating">Nombre</ion-label>
+                  <ion-input type="text" placeholder="Nombre" formControlName="name"> </ion-input>
+                  <ion-note slot="error"
+                    *ngIf="(dataForm.controls.name.dirty || dataForm.controls.name.touched) && dataForm.controls.name.errors">
+                    Escriba el nombre</ion-note>
+                </ion-item>
+  
+                <ion-item transparent *ngIf="!edit">
+                  <ion-icon slot="start" name="mail-outline"></ion-icon>
+                  <ion-label position="floating">Email</ion-label>
+                  <ion-input type="text" placeholder="Email" formControlName="email"> </ion-input>
+                  <ion-note slot="error"
+                    *ngIf="(dataForm.controls.email.dirty || dataForm.controls.email.touched) && dataForm.controls.email.errors">
+                    Email no es válido</ion-note>
+                </ion-item>
+  
+                <ion-item transparent *ngIf="!edit">
+                  <ion-icon slot="start" name="help-outline"></ion-icon>
+                  <ion-label position="floating">Recordar contraseña</ion-label>
+                  <ion-input type="text" placeholder="Recordar clave contraseña" formControlName="help"> </ion-input>
+                  <ion-note slot="error"
+                    *ngIf="(dataForm.controls.help.dirty ||dataForm.controls.help.touched) && dataForm.controls.help.errors">
+                    Escriba clave recuerdo de contraseña</ion-note>
+                </ion-item>
+  
+                <ion-item transparent *ngIf="!edit">
+                  <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+                  <ion-label position="floating">Contraseña</ion-label>
+                  <ion-input [type]="typePassword1" placeholder="Contraseña" formControlName="password1"></ion-input>
+                  <ion-note slot="error"
+                    *ngIf="(dataForm.controls.password1.dirty ||dataForm.controls.password1.touched) && dataForm.controls.password1.errors">
+                    La contraseña necesita 6 caracteres</ion-note>
+                  <ion-icon (click)="showPassword( 'password1' )" slot="end" [name]="icon1"></ion-icon>
+                </ion-item>
+  
+                <ion-item transparent *ngIf="!edit">
+                  <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+                  <ion-label position="floating">Repita contraseña</ion-label>
+                  <ion-input [type]="typePassword2" placeholder="Repita contraseña" formControlName="password2">
+                  </ion-input>
+                  <ion-note slot="error"
+                    *ngIf="(dataForm.controls.password2.dirty ||dataForm.controls.password2.touched) && dataForm.controls.password2.errors">
+                    La contraseña necesita 6 caracteres</ion-note>
+                  <ion-icon (click)="showPassword( 'password2')" slot="end" [name]="icon2"></ion-icon>
+                </ion-item>
+
+                <ion-radio-group [(ngModel)]="rol" [ngModelOptions]="{standalone: true}">
+                  <ion-list-header>
+                    <ion-label class="ion-text-center">
+                      Rol:
+                    </ion-label>
+                  </ion-list-header>
+
+                  <ion-item>
+                    <ion-label>{{ 'dashboard.employee' | translate }}</ion-label>
+                    <ion-radio value="empleado" color="secondary"></ion-radio>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Admin</ion-label>
+                    <ion-radio value="admin" color="secondary"></ion-radio>
+                  </ion-item>
+
+                </ion-radio-group>
+  
+            </ion-list>
+        </ion-col>
+    </ion-row>
+    
+    <ion-row>
+    <ion-col>
+        <ion-button type="submit"
+                    color="secondary"
+                    shape="round" [disabled]="!dataForm.valid">
+            Crear usuario
+        </ion-button>
+    </ion-col>
+  </ion-row>
+  
+  </form> 
+
+</ion-content>
+<!-- Avatar Selector -->
+

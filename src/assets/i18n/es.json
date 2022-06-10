@@ -1,0 +1,97 @@
+{
+    "appointments": {
+        "appointments": "Citas",
+        "shortshowAppointments": "Ver citas",
+        "showAppointments": "Ver citas",
+        "noAppointments": "No hay citas",
+        "updateAppointment": "Actualizar cita",
+        "addAppointment": "Añadir cita",
+        "selectClient": "Seleccione cliente",
+        "selectHour": "Seleccione hora",
+        "writeDescription": "Escriba descripción",
+        "delete": "Esta seguro de eliminar la cita?",
+        "confirmAddAppointment": "Cita añadida",
+        "errorAddAppointment": "Error al añadir cita",
+        "confirmUpdateAppointment": "Cita actualizada",
+        "errorUpdateMaterial": "Error al actualizar cita",
+        "confirm_delete": "Cita eliminada"
+    },
+    "clients": {
+        "clients": "Clientes",
+        "searchClient": "Buscar cliente",
+        "addClient": "Añadir cliente",
+        "delete": "¿Esta seguro de eliminar el cliente",
+        "updateClient": "Actualizar cliente",
+        "writeDni": "Escriba dni",
+        "confirmAddClient": "Cliente añadido",
+        "errorAddClient": "Error al añadir cliente",
+        "confirmUpdateClient": "Cliente actualizado",
+        "errorUpdateClient": "Error al actualizar cliente",
+        "min_tel": "Escriba min. 9 números",
+        "confirm_delete": "Cliente eliminado"
+    },
+    "materials": {
+        "used": "Seleccione el material usado",
+        "updateMaterial": "Actualizar material",
+        "outStock": "Agotado",
+        "exist": "El nombre del material ya existe",
+        "numInt": "Introduzca número entero",
+        "delete": "¿Esta seguro de eliminar el material?",
+        "confirmDelete": "Material eliminado",
+        "errorDelete": "Error al eliminar el material",
+        "confirmAddMaterial": "Material añadido",
+        "errorAddMaterial": "Error al añadir material",
+        "confirmUpdateMaterial": "Material actualizado",
+        "errorUpdateMaterial": "Error al actualizar material",
+        "addMaterial": "Añadir material",
+        "positiveNumber": "Introduzca stock 0 o mayor"
+    },
+    "dashboard": {
+        "welcome": "Bienvenido al panel de administrador",
+        "employees": "Empleados",
+        "materials": "Materiales",
+        "searchEmployee": "Buscar empleado",
+        "employee": "empleado",
+        "updateEmployee": "Actualizar empleado",
+        "searchMaterial": "Buscar material",
+        "confirmAddEmployee": "Empleado añadido",
+        "errorAddEmployee": "Error al añadir empleado",
+        "confirmUpdateEmployee": "Empleado actualizado",
+        "errorUpdateEmployee": "Error al actualizar empleado"
+    },
+    "settings": {
+        "settings": "Ajustes",
+        "darkMode" : "Modo oscuro",
+        "language": "Idioma",
+        "spanish": "Español",
+        "english": "Inglés"
+    },
+    "employee": {
+        "no_delete": "No puede eliminar al empleado actual de la sesión",
+        "delete": "¿Esta seguro de eliminar el empleado?",
+        "confirm_delete": "Empleado eliminado",
+        "exist": "Existe empleado con ese dni"
+    },
+    "comun": {
+        "description": "Descripción",
+        "add": "Añadir",
+        "update": "Actualizar",
+        "name": "Nombre",
+        "surname": "Apellidos",
+        "writeDni": "Escriba dni coorecto",
+        "witeName": "Escriba nombre",
+        "writeSurname": "Escriba apellidos",
+        "writeEmail": "Escriba email correctamente",
+        "edit": "Editar",
+        "cancel": "Cancelar",
+        "accept": "Aceptar",
+        "confirm": "Confirmar",
+        "emptyInput": "Rellene todos los campos",
+        "existDni": "El dni ya existe",
+        "password": "Password",
+        "network_connected" : "Red conectada",
+        "network_disconnected": "Red desconectada",
+        "register_user": "Registrar usuario"
+    }
+    
+}

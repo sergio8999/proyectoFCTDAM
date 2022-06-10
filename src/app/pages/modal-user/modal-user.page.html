@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-icon slot="icon-only" name="arrow-back-outline" (click)="closeModal()"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ 'dashboard.updateEmployee' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="dataForm" (ngSubmit)="update()" class="margin-top">
+
+    <ion-list>
+      <ion-item transparent>
+        <ion-icon slot="start" name="document-text-outline"></ion-icon>
+        <ion-label position="floating">DNI</ion-label>
+        <ion-input type="text" placeholder="Dni" formControlName="dni"> </ion-input>
+        <ion-note slot="error"
+          *ngIf="(dataForm.controls.dni.dirty || dataForm.controls.dni.touched) && dataForm.controls.dni.errors">
+          {{ 'comun.writeDni' | translate }}</ion-note>
+      </ion-item>
+
+      <ion-item transparent>
+        <ion-icon slot="start" name="people-outline"></ion-icon>
+        <ion-label position="floating">{{ 'comun.name' | translate }}</ion-label>
+        <ion-input type="text" [placeholder]="'comun.name' | translate" formControlName="name"> </ion-input>
+        <ion-note slot="error"
+          *ngIf="(dataForm.controls.name.dirty || dataForm.controls.name.touched) && dataForm.controls.name.errors">
+          {{ 'comun.writeName' | translate }}</ion-note>
+      </ion-item>
+
+      <ion-radio-group [(ngModel)]="rol" [ngModelOptions]="{standalone: true}">
+        <ion-list-header>
+          <ion-label class="ion-text-center">
+            Rol:
+          </ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>{{ 'dashboard.employee' | translate }}</ion-label>
+          <ion-radio value="empleado" [disabled]="this.userStorage.email == this.user.email" color="secondary">
+          </ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Admin</ion-label>
+          <ion-radio value="admin" [disabled]="this.userStorage.email == this.user.email" color="secondary"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+    <ion-row>
+      <ion-col>
+        <ion-button color="secondary" type="submit" color="secondary" shape="round">
+          {{ 'comun.update' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

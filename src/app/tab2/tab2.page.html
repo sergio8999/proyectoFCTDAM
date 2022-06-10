@@ -1,0 +1,42 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      {{ 'clients.clients' | translate }}
+    </ion-title>
+  </ion-toolbar>
+  <ion-searchbar [placeholder]="'clients.searchClient' | translate" animated inputmode="text" [debounce]="250" (ionChange)="onSearchChange( $event )" ICOLO></ion-searchbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item-sliding *ngFor="let client of clients | searchText: text: 'fullName'">
+
+      <ion-item-options side="start">
+        <ion-item-option color="danger" (click)="delete(client)"><ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-item-option>
+        <ion-item-option color="secondary" (click)="edit(client)"><ion-icon slot="icon-only" name="create-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+
+      <ion-item class="animate__animated animate__fadeIn animate__faster">
+        
+        <ion-avatar slot="start">
+          <img src="assets/avatars/avatarClient.svg">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ client.fullName }} <small>{{ client.dni }}</small></h2>
+          <ion-label>
+            <p> <small>Email: {{ client.email }}</small></p>
+            <p> <small>Tel.: {{ client.tel }}</small></p>
+
+          </ion-label>
+        </ion-label>
+      </ion-item>
+    </ion-item-sliding>
+</ion-list>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button size="small" (click)="showrModal( false )" color="secondary">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

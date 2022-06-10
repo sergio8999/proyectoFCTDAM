@@ -1,0 +1,96 @@
+{
+    "appointments": {
+        "appointments": "Appointments",
+        "shortshowAppointments": "Show appoin.",
+        "showAppointments": "Show appointment",
+        "noAppointments": "There are no appointments",
+        "updateAppointment": "Update appointment",
+        "addAppointment": "Add appointment",
+        "selectClient": "Select client",
+        "selectHour": "Select hour",
+        "writeDescription": "Write description",
+        "delete": "Are you sure you want to delete the appointment?",
+        "confirmAddAppointment": "Added appointment",
+        "errorAddAppointment": "Error adding appointment",
+        "confirmUpdateAppointment": "Updated appointment",
+        "errorUpdateMaterial": "Error updating appointment",
+        "confirm_delete": "Deleted appointment"
+    },
+    "clients": {
+        "clients": "clients",
+        "searchClient": "Search client",
+        "addClient": "Add client",
+        "delete": "Are you sure you want to delete the client?",
+        "updateClient": "Update client",
+        "confirmAddClient": "Added client",
+        "errorAddClient": "Error adding client",
+        "confirmUpdateClient": "Updated client",
+        "errorUpdateClient": "Error updating client",
+        "min_tel": "Write min. nine numbers",
+        "confirm_delete": "Deleted customer"
+    },
+    "materials": {
+        "used": "Select the materials used",
+        "updateMaterial": "Update material",
+        "outStock": "Out of stock",
+        "exist": "The name of the material already exists",
+        "numInt":"Enter whole number",
+        "delete": "Are you sure you want to delete the material?",
+        "confirmDelete": "material removed",
+        "errorDelete": "Failed to remove material",
+        "confirmAddMaterial": "Added material",
+        "errorAddMaterial": "Error adding material",
+        "confirmUpdateMaterial": "Updated material",
+        "errorUpdateMaterial": "Error updating material",
+        "addMaterial": "Add material",
+        "positiveNumber": "Enter positive numbers"
+    },
+    "dashboard": {
+        "welcome": "Welcome to the admin panel",
+        "employees": "Employees",
+        "materials": "Materials",
+        "searchEmployee": "Search employee",
+        "employee": "employee",
+        "updateEmployee": "Update employee",
+        "searchMaterial": "Search material",
+        "confirmAddEmployee": "Added employee",
+        "errorAddEmployee": "Error adding employee",
+        "confirmUpdateEmployee": "Updated employee",
+        "errorUpdateEmployee": "Error updating employee"
+    },
+    "settings": {
+        "settings": "Settings",
+        "darkMode" : "Dark mode",
+        "language": "Language",
+        "spanish": "Spanish",
+        "english": "English"
+    },
+    "employee": {
+        "no_delete": "You cannot remove the current employee from the session",
+        "delete": "Are you sure you want to delete the employee?",
+        "confirm_delete": "Eliminated Employee",
+        "exist": "There is an employee with that dni"
+    },
+    "comun": {
+        "description": "Description",
+        "add": "Add",
+        "update": "Update",
+        "name": "Name",
+        "surname": "Surname",
+        "writeDni": "Write correct dni",
+        "witeName": "Write name",
+        "writeSurname": "Write surname",
+        "writeEmail": "Write email correctly",
+        "edit": "Edit",
+        "cancel": "Cancel",
+        "accept": "Accept",
+        "confirm": "Confirm",
+        "emptyInput": "Fill in all the fields",
+        "existDni": "The dni already exists",
+        "password": "Contraseña",
+        "network_connected" : "Network connected",
+        "network_disconnected": "Network disconnected",
+        "register_user": "Register user"
+    }
+    
+}

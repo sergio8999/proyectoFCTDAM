@@ -1,0 +1,50 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" color="primary" #tab>
+    <ion-slides [options]="avatarSlide" >
+      <ion-slide>
+        
+        <ion-tab-button tab="tab1" #tab>
+          <ion-icon *ngIf="tab.selectedTab != 'tab1'" name="calendar-outline"></ion-icon>
+          <ion-icon *ngIf="tab.selectedTab == 'tab1'" name="calendar"></ion-icon>
+          <ion-label >{{ 'appointments.appointments' | translate}}</ion-label>
+        </ion-tab-button>
+      </ion-slide>
+
+      <ion-slide >
+        <ion-tab-button tab="tab2">
+          <ion-icon *ngIf="tab.selectedTab != 'tab2'" name="people-circle-outline"></ion-icon>
+          <ion-icon *ngIf="tab.selectedTab == 'tab2'" name="people-circle"></ion-icon>
+          <ion-label>{{ 'clients.clients' | translate }}</ion-label>
+        </ion-tab-button>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-tab-button tab="tab4" >
+          <ion-icon *ngIf="tab.selectedTab != 'tab4'" name="hammer-outline"></ion-icon>
+          <ion-icon *ngIf="tab.selectedTab == 'tab4'" name="hammer"></ion-icon>
+          <ion-label>Material</ion-label>
+        </ion-tab-button>
+      </ion-slide>
+
+      <ion-slide *ngIf="rol == 'admin'">
+
+        <ion-tab-button tab="tab5">
+          <ion-icon *ngIf="tab.selectedTab != 'tab5'" name="key-outline"></ion-icon>
+          <ion-icon *ngIf="tab.selectedTab == 'tab5'" name="key"></ion-icon>
+          <ion-label>Dashboard</ion-label>
+        </ion-tab-button>
+      </ion-slide>
+
+      <ion-slide>
+
+        <ion-tab-button tab="tab3">
+          <ion-icon *ngIf="tab.selectedTab != 'tab3'" name="settings-outline"></ion-icon>
+          <ion-icon *ngIf="tab.selectedTab == 'tab3'" name="settings"></ion-icon>
+          <ion-label>{{ 'settings.settings' | translate}}</ion-label>
+        </ion-tab-button>
+      
+      </ion-slide>
+    </ion-slides>
+  </ion-tab-bar>
+
+  </ion-tabs>

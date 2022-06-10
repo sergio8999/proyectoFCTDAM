@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+
+    <ion-title>
+      {{ 'appointments.appointments' | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-label slot="end"> {{ 'appointments.shortshowAppointments' | translate }}</ion-label>
+        <ion-toggle color="secondary" slot="end" (ionChange)="updateCalendar()" [(ngModel)]="showAppointment"></ion-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+ 
+    <ion-list>
+        <ion-datetime color="secondary" size="cover" [min]="minDate" [max]="maxDate" [(ngModel)]="daySelected" (ionChange)="changeDay()" presentation="date" [isDateEnabled]="isDateEnabled" displayFormat="DD MMM YYYY HH:mm" [locale]="language" first-day-of-week="1" ></ion-datetime>
+      
+        <p class="ion-text-center margin-p">{{ dayString }}</p>
+      <ion-item-sliding *ngFor="let appointment of appointments | sortAppointment">
+
+        <ion-item-options side="start" *ngIf="!showAppointment">
+          <ion-item-option color="danger" (click)="delete(appointment)"><ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-item-option>
+          <ion-item-option color="secondary" (click)="edit(appointment)"><ion-icon slot="icon-only" name="create-outline"></ion-icon></ion-item-option>
+        </ion-item-options>
+
+        <ion-item class="animate__animated animate__fadeIn animate__faster">
+          <ion-label>
+            <h3>{{ appointment.name }} {{ appointment.surname }}  <small>{{ appointment.day }} {{ appointment.hour }}</small></h3>
+            <p> <small>{{ appointment.description }}</small></p>
+          </ion-label>
+          <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
+        </ion-item>
+      </ion-item-sliding>
+      
+      <p *ngIf="appointments.length == 0" class="margin-p">{{ 'appointments.noAppointments' | translate }}</p>
+
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+      <ion-fab-button size="small" (click)="showrModal( false )" [disabled]="disabledDay || showAppointment" color="secondary">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "proyectoFisioterapia",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

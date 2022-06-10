@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-icon slot="icon-only" name="menu-outline" (click)="openFirst()"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu Dashboard</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item (click)="title = 'Dashboard'" routerLink="/tabs/tab5/home-dashboard" routerLinkActive="active-item" #rla="routerLinkActive" detail>
+            <ion-icon [color]="rla.isActive && 'active-item'" slot="start" name="home-outline"></ion-icon>
+            Dashboard
+          </ion-item>
+          <ion-item (click)="title = 'Empleados Dashboard' " routerLink="/tabs/tab5/employee" routerLinkActive="active-item" detail>
+            <ion-icon [color]="rla.isActive && 'active-item'" slot="start" name="person-outline"></ion-icon>
+            {{ 'dashboard.employees' | translate }}
+          </ion-item>
+          <ion-item (click)="title = 'Materiales Dashboard'" routerLink="/tabs/tab5/material-dashboard" routerLinkActive="active-item" detail>
+            <ion-icon [color]="rla.isActive && 'active-item'" slot="start" name="hammer-outline"></ion-icon>
+            {{ 'dashboard.materials' | translate }}
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-content>

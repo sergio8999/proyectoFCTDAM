@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Material</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="dataForm">
+    <div [formGroup]="materials">
+      <ion-label>{{ 'materials.used' | translate }}:</ion-label>
+      <div class="margin-bottom"></div>
+      <ion-list>
+        <ion-item *ngFor="let material of materials.controls; let i=index" class="animate__animated animate__fadeIn animate__faster">
+          <ion-label>{{ materialsDb[i].name }}</ion-label>
+          <ion-chip color="danger" *ngIf="materialsDb[i].stock == 0">
+            <ion-label>{{ 'materials.outStock' | translate }}</ion-label>
+          </ion-chip>
+  
+            <ion-select *ngIf="materialsDb[i].stock != 0" [formControlName]="i" interface="alert" interface="popover" translucent  (ionChange)="onChange($event)">
+            <ion-select-option value="0">0</ion-select-option>
+            <ion-select-option *ngFor="let item of fillArray(materialsDb[i].stock)" [value]="item">{{ item }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title> 
+      <ion-button (click)="updateMaterial()" type="submit" color="secondary" expand="block"[disabled]= "disabledUpdate">
+        {{ 'materials.updateMaterial' | translate }}
+    </ion-button>
+  </ion-title>
+  </ion-toolbar>
+</ion-footer>

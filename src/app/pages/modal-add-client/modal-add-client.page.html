@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-icon slot="icon-only" name="arrow-back-outline" (click)="closeModal()"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center" *ngIf="!edit">{{ 'clients.addClient' | translate}} </ion-title>
+    <ion-title class="ion-text-center" *ngIf="edit">{{ 'clients.updateClient' | translate}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <form [formGroup]="dataForm" (ngSubmit)="edit ? update() : addClient()">
+          
+    <ion-item>
+         <ion-icon slot="start" name="document-text-outline"></ion-icon>
+         <ion-label position="floating">DNI</ion-label>
+         <ion-input type="text" placeholder="DNI" formControlName="dni"> </ion-input>
+         <ion-note slot="error" *ngIf="(dataForm.controls.dni.dirty || dataForm.controls.dni.touched) && dataForm.controls.dni.errors">{{ 'comun.writeDni' | translate}}</ion-note>
+    </ion-item>
+
+     <ion-item>
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        <ion-label position="floating">{{ 'comun.name' | translate }}</ion-label>
+        <ion-input type="text" [placeholder]="'comun.name' | translate" formControlName="name"> </ion-input>
+        <ion-note slot="error" *ngIf="(dataForm.controls.name.dirty || dataForm.controls.name.touched) && dataForm.controls.name.errors">{{ 'comun.writeName' | translate}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+        <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+        <ion-label position="floating">{{ 'comun.surname' | translate }}</ion-label>
+        <ion-input type="text" [placeholder]="'comun.surname' | translate" formControlName="surname"> </ion-input>
+        <ion-note slot="error" *ngIf="(dataForm.controls.surname.dirty || dataForm.controls.surname.touched) && dataForm.controls.surname.errors">{{ 'comun.writeSurname' | translate}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="call-outline"></ion-icon> 
+      <ion-label position="floating">Tel.</ion-label>
+      <ion-input type="tel" [placeholder]="Tel" formControlName="tel"> </ion-input>
+      <ion-note slot="error" *ngIf="(dataForm.controls.tel.dirty || dataForm.controls.tel.touched) && dataForm.controls.tel.errors">{{ 'clients.min_tel' | translate}}</ion-note>
+  </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" placeholder="Email" formControlName="email"> </ion-input>
+      <ion-note slot="error" *ngIf="(dataForm.controls.email.dirty || dataForm.controls.email.touched) && dataForm.controls.email.errors">{{ 'comun.writeEmail' | translate }}</ion-note>
+    </ion-item>
+     <div linespace></div>
+     <ion-button color="secondary" *ngIf="!edit" type="submit" class="ion-button-class ion-margin" expand="block" fill="outline" shape="round" size="large" [disabled]="!dataForm.valid">
+         {{ 'comun.add' | translate }}
+     </ion-button>
+     <ion-button color="secondary" *ngIf="edit" type="submit" class="ion-button-class ion-margin" expand="block" fill="outline" shape="round" size="large" [disabled]="!dataForm.valid">
+        {{ 'comun.update' | translate }}
+      </ion-button>
+     
+ </form>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-icon slot="icon-only" name="arrow-back-outline" (click)="closeModal()"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ 'appointments.updateAppointment' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content>
+   <ion-list>
+  
+     <form [formGroup]="dataForm" (ngSubmit)="editAppointment()">
+
+      <ion-item *ngIf="appointment">
+        <ion-icon slot="start" name="person-outline"></ion-icon>
+        <ion-label>{{ appointment.name }} {{ appointment.surname }}</ion-label>
+      </ion-item>
+           
+      <ion-item transparent>
+          <ion-icon slot="start" name="document-text-outline"></ion-icon>
+          <ion-label position="floating">{{ 'comun.description' | translate }}</ion-label>
+          <ion-input type="text" [placeholder]="'comun.description' | translate" formControlName="description"> </ion-input>
+          <ion-note slot="error" *ngIf="(dataForm.controls.description.dirty || dataForm.controls.description.touched) && dataForm.controls.description.errors">{{ 'appointments.writeDescription' | translate}}</ion-note>
+      </ion-item>
+
+        <ion-item>
+            <ion-icon slot="start" name="calendar-outline"></ion-icon>
+          <ion-input [value]="dateValue" id="open-date-input-2"></ion-input>
+          <ion-popover trigger="open-date-input-2" show-backdrop="false">
+            <ng-template>
+              <ion-datetime
+                [min]="minDate" [max]="maxDate"presentation="date"  color="secondary"
+                [isDateEnabled]="isDateEnabled" displayFormat="DD MMM YYYY HH:mm" [locale]="language" first-day-of-week="1" 
+                #popoverDatetime2
+                (ionChange)="changeDay(formatDate(popoverDatetime2.value))"
+              ></ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+
+      <ion-item>
+        <ion-icon slot="start" name="time-outline"></ion-icon>
+        <ion-label position="floating">{{ 'appointments.selectHour' | translate }}</ion-label>
+        <ion-select [placeholder]="'appointments.selectHour' | translate" formControlName="hour">
+          <ion-select-option *ngFor="let hour of hours" [value]="hour.hour" [disabled]="hour.disabled">{{ hour.hour }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div linespace></div>
+      <ion-button color="secondary" type="submit" class="ion-button-class" expand="block" fill="outline" shape="round" size="large" [disabled]="!dataForm.valid">
+          {{ 'comun.update' | translate }}
+      </ion-button>
+      
+  </form>
+
+   </ion-list>
+
+</ion-content>

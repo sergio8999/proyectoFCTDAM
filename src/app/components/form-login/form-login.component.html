@@ -1,0 +1,43 @@
+<form [formGroup]="dataForm" (ngSubmit)="login()">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+
+        <ion-list>
+
+          <ion-item trasparent>
+            <ion-icon slot="start" name="mail-outline"></ion-icon>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" placeholder="Email" formControlName="email"> </ion-input>
+            <ion-note slot="error"
+              *ngIf="(dataForm.controls.email.dirty || dataForm.controls.email.touched) && dataForm.controls.email.errors">
+              Email no es válido</ion-note>
+          </ion-item>
+
+          <ion-item trasparent>
+            <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input [type]="typePassword" placeholder="Contraseña" formControlName="password"></ion-input>
+            <ion-note slot="error"
+              *ngIf="(dataForm.controls.password.dirty ||dataForm.controls.password.touched) && dataForm.controls.password.errors">
+              La contraseña necesita 6 caracteres</ion-note>
+            <ion-icon (click)="showPassword()" slot="end" [name]="icon"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label class="forget-password" (click)="presentAlertPrompt()">¿Olvidó su contraseña?</ion-label>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="secondary" shape="round" [disabled]="!dataForm.valid" expand="block">
+          Login
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</form>
